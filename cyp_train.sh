@@ -1,6 +1,6 @@
 #!/bin/sh
 python train_imgreid_xent.py \
---root data \
+--root  ../reid-datasets \
 -s market1501 \
 -t market1501 \
 -j 4 \
