@@ -25,6 +25,8 @@ from torchreid.utils.reidtools import visualize_ranked_results
 from torchreid.eval_metrics import evaluate
 from torchreid.optimizers import init_optimizer
 
+import scipy.io as scio
+
 
 # global variables
 parser = argument_parser()
@@ -247,6 +249,8 @@ def test(model, queryloader, galleryloader, use_gpu, ranks=[1, 5, 10, 20], retur
     print("Computing CMC and mAP")
     cmc, mAP = evaluate(distmat, q_pids, g_pids, q_camids, g_camids, use_metric_cuhk03=args.use_metric_cuhk03)
 
+    scio.savemat(args.save_dir+'/CMC_.mat', {'mAP':mAP,'cmc_scores':cmc})
+	
     print("Results ----------")
     print("mAP: {:.1%}".format(mAP))
     print("CMC curve")
