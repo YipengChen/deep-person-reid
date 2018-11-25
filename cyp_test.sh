@@ -1,8 +1,8 @@
 #!/bin/sh
 python train_imgreid_xent.py \
 --root  ../reid-datasets \
--s market1501 \ # this does not matter any more
--t market1501 \ # you can add more datasets here for the test list
+-s market1501 \
+-t market1501 \
 --height 256 \
 --width 128 \
 --test-batch-size 100 \
