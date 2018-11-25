@@ -156,7 +156,7 @@ def evaluate_py(distmat, q_pids, g_pids, q_camids, g_camids, max_rank, use_metri
         return eval_market1501(distmat, q_pids, g_pids, q_camids, g_camids, max_rank)
 
 
-def evaluate(distmat, q_pids, g_pids, q_camids, g_camids, max_rank=50, use_metric_cuhk03=False, use_cython=True):
+def evaluate(distmat, q_pids, g_pids, q_camids, g_camids, max_rank=100, use_metric_cuhk03=False, use_cython=True):
     if use_cython and IS_CYTHON_AVAI:
         return evaluate_cy(distmat, q_pids, g_pids, q_camids, g_camids, max_rank, use_metric_cuhk03)
     else:
