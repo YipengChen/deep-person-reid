@@ -1,4 +1,5 @@
 #!/bin/sh
+'''
 python train_imgreid_xent.py \
 --root  ../reid-datasets \
 -s cuhk03 \
@@ -12,11 +13,11 @@ python train_imgreid_xent.py \
 --max-epoch 300 \
 --stepsize 150 225 \
 --train-batch-size 32 \
---test-batch-size 100 \
+--test-batch-size 20 \
 -a hacnn \
 --save-dir log/hacnn-cuhk03-xent \
 --gpu-devices 0
-
+'''
 
 python train_imgreid_xent.py \
 --root  ../reid-datasets \
@@ -33,9 +34,10 @@ python train_imgreid_xent.py \
 --fixbase-epoch 10 \
 --open-layers classifier \
 --train-batch-size 32 \
---test-batch-size 100 \
+--test-batch-size 20 \
 -a mlfn \
 --save-dir log/mlfn-cuhk03-xent \
+--use-metric-cuhk03 \
 --gpu-devices 0
 
 
@@ -54,7 +56,8 @@ python train_imgreid_xent.py \
 --fixbase-epoch 10 \
 --open-layers classifier fc_fusion \
 --train-batch-size 32 \
---test-batch-size 100 \
+--test-batch-size 20 \
 -a resnet50mid \
 --save-dir log/resnet50mid-cuhk03-xent \
+--use-metric-cuhk03 \
 --gpu-devices 0
